@@ -25,7 +25,7 @@ include "includes/head.html"
           a.src = g;
           m.parentNode.insertBefore(a, m)
         })(window, document, 'script', '//www.google-analytics.com/analytics.js', 'ga');
-        ga('create', gaKey, 'transfer.sh');
+        ga('create', gaKey, 'fs.teyixing.com');
         ga('send', 'pageview');
       }
     </script>
@@ -35,25 +35,25 @@ include "includes/head.html"
     <section id="home">
         <div class="wrapper">
             <h2 class="page-title">
-                Easy file sharing from the command line</h2>
+                使用命令行快速分享文件</h2>
             <div class="row animated fadeInDown">
                 <div id="from-terminal" class="box col-md-8 col-md-offset-2 col-xs-12">
                     <div class="terminal-top">
 
                     </div>
                     <div id="terminal" class="terminal">
-                        <code class="code-wrapper"><span class="code-title"># Upload using cURL</span>
-                            $ curl --upload-file ./hello.txt https://transfer.sh/hello.txt https://transfer.sh/66nb8/hello.txt
+                        <code class="code-wrapper"><span class="code-title"># 使用curl命令上传文件</span>
+                            $ curl --upload-file ./hello.txt https://fs.teyixing.com/hello.txt https://fs.teyixing.com/66nb8/hello.txt
 
-                            <span class="code-title"># Using the shell function</span>
+                            <span class="code-title"># 使用shell下的function</span>
                             $ transfer hello.txt
-                            ##################################################### 100.0% https://transfer.sh/eibhM/hello.txt
+                            ##################################################### 100.0% https://fs.teyixing.com/eibhM/hello.txt
                         </code>
                     </div>
                     <div id="web">
                         <code class="code-wrapper">
-                            <span class="code-title"># Upload from web</span>
-                            Drag your files here, or <a class="browse" href="#"> click to browse.</a>
+                            <span class="code-title"># 通过web页面上传文件</span>
+                            拖动文件到此处, 或者 <a class="browse" href="#"> 点击添加文件.</a>
                         </code>
                         <input type="file" multiple="multiple" style='display: none;' />
                         <ul class='queue'>
@@ -63,7 +63,7 @@ include "includes/head.html"
                         <div class='all-files'>
                             <br>
                             <div>
-                                <span class="code-title"># Download all your files</span>
+                                <span class="code-title"># 下载文件</span>
                                 <br/>
                                 <br/>
                                 <a class="download-zip btn-cta" href="#">zip</a> <a class="download-tar btn-cta" href="#">tar.gz</a>
@@ -137,14 +137,14 @@ include "includes/head.html"
                     </div>
                     <div class="terminal">
                         <code class="code-wrapper"><span class="code-title"># Uploading is easy using curl</span>
-                            $ curl --upload-file ./hello.txt https://transfer.sh/hello.txt
-                            https://transfer.sh/66nb8/hello.txt
+                            $ curl --upload-file ./hello.txt https://fs.teyixing.com/hello.txt
+                            https://fs.teyixing.com/66nb8/hello.txt
 
-                            $ curl -H "Max-Downloads: 1" -H "Max-Days: 5" --upload-file ./hello.txt https://transfer.sh/hello.txt
-                            https://transfer.sh/66nb8/hello.txt
+                            $ curl -H "Max-Downloads: 1" -H "Max-Days: 5" --upload-file ./hello.txt https://fs.teyixing.com/hello.txt
+                            https://fs.teyixing.com/66nb8/hello.txt
 
                             <span class="code-title"># Download the file</span>
-                            $ curl https://transfer.sh/66nb8/hello.txt -o hello.txt
+                            $ curl https://fs.teyixing.com/66nb8/hello.txt -o hello.txt
                         </code>
                     </div>
                 </div>
@@ -154,7 +154,7 @@ include "includes/head.html"
                     </div>
                     <div class="terminal">
                         <code class="code-wrapper"><span class="code-title"># Add this to .bashrc or .zshrc or its equivalent</span>
-                            transfer(){ if [ $# -eq 0 ];then echo &quot;No arguments specified.\nUsage:\n  transfer &lt;file|directory&gt;\n  ... | transfer &lt;file_name&gt;&quot;&gt;&amp;2;return 1;fi;if tty -s;then file=&quot;$1&quot;;file_name=$(basename &quot;$file&quot;);if [ ! -e &quot;$file&quot; ];then echo &quot;$file: No such file or directory&quot;&gt;&amp;2;return 1;fi;if [ -d &quot;$file&quot; ];then file_name=&quot;$file_name.zip&quot; ,;(cd &quot;$file&quot;&amp;&amp;zip -r -q - .)|curl --progress-bar --upload-file &quot;-&quot; &quot;https://transfer.sh/$file_name&quot;|tee /dev/null,;;else cat &quot;$file&quot;|curl --progress-bar --upload-file &quot;-&quot; &quot;https://transfer.sh/$file_name&quot;|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file &quot;-&quot; &quot;https://transfer.sh/$file_name&quot;|tee /dev/null;fi;}
+                            transfer(){ if [ $# -eq 0 ];then echo &quot;No arguments specified.\nUsage:\n  transfer &lt;file|directory&gt;\n  ... | transfer &lt;file_name&gt;&quot;&gt;&amp;2;return 1;fi;if tty -s;then file=&quot;$1&quot;;file_name=$(basename &quot;$file&quot;);if [ ! -e &quot;$file&quot; ];then echo &quot;$file: No such file or directory&quot;&gt;&amp;2;return 1;fi;if [ -d &quot;$file&quot; ];then file_name=&quot;$file_name.zip&quot; ,;(cd &quot;$file&quot;&amp;&amp;zip -r -q - .)|curl --progress-bar --upload-file &quot;-&quot; &quot;https://fs.teyixing.com/$file_name&quot;|tee /dev/null,;;else cat &quot;$file&quot;|curl --progress-bar --upload-file &quot;-&quot; &quot;https://fs.teyixing.com/$file_name&quot;|tee /dev/null;fi;else file_name=$1;curl --progress-bar --upload-file &quot;-&quot; &quot;https://fs.teyixing.com/$file_name&quot;|tee /dev/null;fi;}
 
                             <span class="code-title"># Now you can use transfer function</span>
                             $ transfer hello.txt
@@ -174,11 +174,11 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper">
-                                $ curl -i -F filedata=@/tmp/hello.txt -F filedata=@/tmp/hello2.txt https://transfer.sh/
+                                $ curl -i -F filedata=@/tmp/hello.txt -F filedata=@/tmp/hello2.txt https://fs.teyixing.com/
 
                                 <span class="code-title"># Combining downloads as zip or tar archive</span>
-                                $ curl https://transfer.sh/(15HKz/hello.txt,15HKz/hello.txt).tar.gz
-                                $ curl https://transfer.sh/(15HKz/hello.txt,15HKz/hello.txt).zip
+                                $ curl https://fs.teyixing.com/(15HKz/hello.txt,15HKz/hello.txt).tar.gz
+                                $ curl https://fs.teyixing.com/(15HKz/hello.txt,15HKz/hello.txt).zip
                             </code>
                         </div>
 
@@ -190,10 +190,10 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># Encrypt files with password using gpg</span>
-                                $ cat /tmp/hello.txt|gpg -ac -o-|curl -X PUT --upload-file "-" https://transfer.sh/test.txt
+                                $ cat /tmp/hello.txt|gpg -ac -o-|curl -X PUT --upload-file "-" https://fs.teyixing.com/test.txt
 
                                 <span class="code-title"># Download and decrypt</span>
-                                $ curl https://transfer.sh/1lDau/test.txt|gpg -o- > /tmp/hello.txt
+                                $ curl https://fs.teyixing.com/1lDau/test.txt|gpg -o- > /tmp/hello.txt
                             </code>
                         </div>
                     </div>
@@ -207,10 +207,10 @@ include "includes/head.html"
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># Scan for malware or viruses using Clamav</span>
                                 $ wget http://www.eicar.org/download/eicar.com
-                                $ curl -X PUT --upload-file ./eicar.com https://transfer.sh/eicar.com/scan
+                                $ curl -X PUT --upload-file ./eicar.com https://fs.teyixing.com/eicar.com/scan
 
                                 <span class="code-title"># Upload malware to VirusTotal, get a permalink in return</span>
-                                $ curl -X PUT --upload-file nhgbhhj https://transfer.sh/test.txt/virustotal
+                                $ curl -X PUT --upload-file nhgbhhj https://fs.teyixing.com/test.txt/virustotal
                             </code>
                         </div>
                     </div>
@@ -220,7 +220,7 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># Backup, encrypt and transfer</span>
-                                $ mysqldump --all-databases|gzip|gpg -ac -o-|curl -X PUT --upload-file "-" https://transfer.sh/test.txt</code>
+                                $ mysqldump --all-databases|gzip|gpg -ac -o-|curl -X PUT --upload-file "-" https://fs.teyixing.com/test.txt</code>
                         </div>
                     </div>
                 </div>
@@ -243,9 +243,9 @@ include "includes/head.html"
                             <code class="code-wrapper"><span class="code-title"># Import keys from keybase</span>
                                 $ keybase track [them]
                                 <span class="code-title"># Encrypt for recipient(s)</span>
-                                $ cat somebackupfile.tar.gz | keybase encrypt [them] | curl --upload-file '-' https://transfer.sh/test.txt
+                                $ cat somebackupfile.tar.gz | keybase encrypt [them] | curl --upload-file '-' https://fs.teyixing.com/test.txt
                                 <span class="code-title"># Decrypt</span>
-                                $ curl https://transfer.sh/sqUFi/test.md |keybase decrypt
+                                $ curl https://fs.teyixing.com/sqUFi/test.md |keybase decrypt
                             </code>
                         </div>
                     </div>
@@ -257,7 +257,7 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># wget</span>
-                                $ wget --method PUT --body-file=/tmp/file.tar https://transfer.sh/file.tar -O - -nv
+                                $ wget --method PUT --body-file=/tmp/file.tar https://fs.teyixing.com/file.tar -O - -nv
                             </code>
                         </div>
                     </div>
@@ -267,7 +267,7 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># grep syslog for pound and transfer</span>
-                                $ cat /var/log/syslog|grep pound|curl --upload-file - https://transfer.sh/pound.log
+                                $ cat /var/log/syslog|grep pound|curl --upload-file - https://fs.teyixing.com/pound.log
                             </code>
                         </div>
                     </div>
@@ -280,7 +280,7 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># Upload using Powershell</span>
-                                PS H:\&gt; invoke-webrequest -method put -infile .\file.txt https://transfer.sh/file.txt
+                                PS H:\&gt; invoke-webrequest -method put -infile .\file.txt https://fs.teyixing.com/file.txt
                             </code>
                         </div>
                     </div>
@@ -290,7 +290,7 @@ include "includes/head.html"
                         </div>
                         <div class="terminal">
                             <code class="code-wrapper"><span class="code-title"># HTTPie</span>
-                                $ http https://transfer.sh/ -vv &lt; /tmp/test.log
+                                $ http https://fs.teyixing.com/ -vv &lt; /tmp/test.log
                             </code>
                         </div>
                     </div>
@@ -305,7 +305,7 @@ include "includes/head.html"
                                 <span class="code-title"># transfersh-cli (https://github.com/tanrax/transfersh-cli)</span>
                                 $ trasnfersh photos.zip
                                 <span class="code-title"># Uploading file</span>
-                                <span class="code-title"># Download from here: https://transfer.sh/xxxxxx/photos.zip</span>
+                                <span class="code-title"># Download from here: https://fs.teyixing.com/xxxxxx/photos.zip</span>
                                 <span class="code-title"># It has also been copied to the clipboard!</span>
                             </code>
                         </div>
@@ -324,14 +324,17 @@ include "includes/head.html"
         </div>
     </section>
 
+
+    <!-- disable this-->
+    <!--
     <section id="share">
         <div class="wrapper">
             <h2 class="page-title">Follow on GitHub</h2>
             <br>
             <br>
 
-            <iframe src="https://ghbtns.com/github-btn.html?user=dutchcoders&repo=transfer.sh&type=follow&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="50"></iframe>
-            <iframe src="https://ghbtns.com/github-btn.html?user=dutchcoders&repo=transfer.sh&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="50"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=dutchcoders&repo=fs.teyixing.com&type=follow&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="250" height="50"></iframe>
+            <iframe src="https://ghbtns.com/github-btn.html?user=dutchcoders&repo=fs.teyixing.com&type=watch&count=true&size=large" allowtransparency="true" frameborder="0" scrolling="0" width="200" height="50"></iframe>
         </div>
     </section>
     <section id="reviews">
@@ -342,7 +345,7 @@ include "includes/head.html"
                         <a href="https://twitter.com/FloifyDave/status/517383101425516544">
                             <img class="twitter-profile" src="images/reviews/dave.jpg" alt="">
                         </a>
-                        <p><a href="https://twitter.com/dutchcoders">@dutchcoders</a> Thanks for transfer.sh. Just used it for a production purpose for a customer. So great, so easy, so https. :)</p>
+                        <p><a href="https://twitter.com/dutchcoders">@dutchcoders</a> Thanks for fs.teyixing.com. Just used it for a production purpose for a customer. So great, so easy, so https. :)</p>
                         <a href="https://twitter.com/FloifyDave/status/517383101425516544">
                                 &mdash; Dave Sims (@FloifyDave)</a>
                     </blockquote>
@@ -354,7 +357,7 @@ include "includes/head.html"
                         <a href="https://twitter.com/kareemk/status/517029789191118849">
                             <img class="twitter-profile" src="images/reviews/kareem.jpg" alt="">
                         </a>
-                        <p><a href="https://twitter.com/dutchcoders">@dutchcoders</a> love transfer.sh! any change we can *pay* for a self-hosted version?</p><a href="https://twitter.com/kareemk/status/517029789191118849">&mdash; Kareem Kouddous (@kareemk) </a>
+                        <p><a href="https://twitter.com/dutchcoders">@dutchcoders</a> love fs.teyixing.com! any change we can *pay* for a self-hosted version?</p><a href="https://twitter.com/kareemk/status/517029789191118849">&mdash; Kareem Kouddous (@kareemk) </a>
                     </blockquote>
                 </div>
                 <div class="col-md-6 col-xs-12">
@@ -372,7 +375,7 @@ include "includes/head.html"
                         <a href="https://twitter.com/jacoblindgren11/status/516975006501203968">
                             <img class="twitter-profile" src="images/reviews/jacob.jpg" alt="">
                         </a>
-                        <p>Love transfer.sh! Will be using it from now on! Thanks for the amazing service we can use from the CLI <a href="https://twitter.com/dutchcoders">@dutchcoders</a>
+                        <p>Love fs.teyixing.com! Will be using it from now on! Thanks for the amazing service we can use from the CLI <a href="https://twitter.com/dutchcoders">@dutchcoders</a>
                         </p><a href="https://twitter.com/jacoblindgren11/status/516975006501203968">&mdash; Jacob Lindgren (@jacoblindgren11) </a>
                     </blockquote>
                 </div>
@@ -381,7 +384,7 @@ include "includes/head.html"
                         <a href="https://twitter.com/arvestad/status/519507976491499521">
                             <img class="twitter-profile" src="images/reviews/lars.jpg" alt="">
                         </a>
-                        <p>transfer.sh is my latest fav service! Try simple command-line and web file sharing! <a href="https://t.co/FSrsb1JKJd">https://t.co/FSrsb1JKJd</a>&#10;Thanks <a href="https://twitter.com/dutchcoders">@dutchcoders</a> !</p> <a href="https://twitter.com/arvestad/status/519507976491499521">&mdash; Lars Arvestad (@arvestad)</a>
+                        <p>fs.teyixing.com is my latest fav service! Try simple command-line and web file sharing! <a href="https://t.co/FSrsb1JKJd">https://t.co/FSrsb1JKJd</a>&#10;Thanks <a href="https://twitter.com/dutchcoders">@dutchcoders</a> !</p> <a href="https://twitter.com/arvestad/status/519507976491499521">&mdash; Lars Arvestad (@arvestad)</a>
                     </blockquote>
                 </div>
             </div>
@@ -395,18 +398,18 @@ include "includes/head.html"
             <h2 class="page-title">Share the love</h2>
             <ul class="share-buttons">
                 <li>
-                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ftransfer.sh&t=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"> <i class="icon-facebook"></i>
+                    <a href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2Ffs.teyixing.com&t=" target="_blank" onclick="window.open('https://www.facebook.com/sharer/sharer.php?u=' + encodeURIComponent(document.URL) + '&t=' + encodeURIComponent(document.URL)); return false;"> <i class="icon-facebook"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ftransfer.sh&text=:%20http%3A%2F%2Ftransfer.sh" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"> <i class="icon-twitter"></i>
+                    <a href="https://twitter.com/intent/tweet?source=http%3A%2F%2Ffs.teyixing.com&text=:%20http%3A%2F%2Ffs.teyixing.com" target="_blank" title="Tweet" onclick="window.open('https://twitter.com/intent/tweet?text=' + encodeURIComponent(document.title) + ':%20'  + encodeURIComponent(document.URL)); return false;"> <i class="icon-twitter"></i>
                 </li>
                 <li>
-                    <a href="https://plus.google.com/share?url=http%3A%2F%2Ftransfer.sh" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"> <i class="icon-gplus"></i>
+                    <a href="https://plus.google.com/share?url=http%3A%2F%2Ffs.teyixing.com" target="_blank" title="Share on Google+" onclick="window.open('https://plus.google.com/share?url=' + encodeURIComponent(document.URL)); return false;"> <i class="icon-gplus"></i>
                     </a>
                 </li>
                 <li>
-                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Ftransfer.sh&title=&summary=&source=http%3A%2F%2Ftransfer.sh" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"> <i class="icon-linkedin"></i>
+                    <a href="http://www.linkedin.com/shareArticle?mini=true&url=http%3A%2F%2Ffs.teyixing.com&title=&summary=&source=http%3A%2F%2Ffs.teyixing.com" target="_blank" title="Share on LinkedIn" onclick="window.open('http://www.linkedin.com/shareArticle?mini=true&url=' + encodeURIComponent(document.URL) + '&title=' +  encodeURIComponent(document.title)); return false;"> <i class="icon-linkedin"></i>
                     </a>
                 </li>
             </ul>
@@ -431,6 +434,7 @@ include "includes/head.html"
             <a href="http://jxm5d6emw5rknovg.onion/">http://jxm5d6emw5rknovg.onion/</a>
         </div>
     </section>
+    -->
 
 
     include "includes/footer.html" 
